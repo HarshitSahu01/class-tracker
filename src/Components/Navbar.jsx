@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-// import { default as gdg } from "../assets/gdg.svg";
+import { default as logo } from "../assets/logo.svg";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -10,12 +10,12 @@ const Navbar = () => {
   };
 
   return (
-    <Navbar className="flex items-center justify-between px-6 py-4 bg-white shadow-md sticky top-0 z-50">
+    <header className="flex items-center justify-between px-6 py-4 bg-white shadow-md sticky top-0 z-50">
       <div className="flex items-center space-x-4">
         <Link to="/" className="flex items-center">
-          {/* <img src={gdg} alt="Logo" className="w-10 h-10" />  */}
+          <img src={logo} alt="Logo" className="w-10 h-10" /> 
           <span className="font-medium text-[#5f5f5f] text-xl ml-2" style={{ fontFamily: 'Google Sans, sans-serif' }}>
-            GDG RBU
+            CLASS TRACKER
           </span>
         </Link>
       </div>
@@ -74,7 +74,7 @@ const Navbar = () => {
           </div>
         </nav>
       )}
-    </Navbar>
+    </header>
   );
 };
 

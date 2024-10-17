@@ -8,7 +8,6 @@ function App() {
   return (
     <>
       <Navbar />
-      <img src={reactLogo} alt="meow" />
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>
