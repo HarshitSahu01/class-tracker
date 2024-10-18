@@ -8,8 +8,8 @@ import ManagmentLogin from './Pages/ManagmentLogin'
 import Home1 from './Pages/Home1'
 import BuildingForm from './Pages/Form'
 import FormClassRoom from './Pages/FormClassRoom'
-
-
+import LangingPage from './Components/LangingPage'
+import Navbar from './Components/Navbar'
 import ClassroomList from './Pages/AvailableClassRoom'
 
 function App() {
@@ -26,7 +26,11 @@ function App() {
         <Route path="/formb" element={<BuildingForm />} />
         <Route path="/formc" element={<FormClassRoom />} />
         <Route path="/available" element={<ClassroomList/>} />
+        <Route path="/LandingPage" element={<LangingPage/>} />
+
       </Routes> 
+      {/* <Navbar/> */}
+      {/* <LangingPage/> */}
       
 
     </>
