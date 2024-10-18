@@ -1,11 +1,12 @@
 import React from 'react'
 import Navbar from '../Components/Navbar2'
+import OurListedB from './OurListedB';
 
 function Home1() {
   return (
     <div>
      <Navbar/>
-     <h1>Classroom Listed By You</h1>
+     <OurListedB/>
     </div>
   )
 }
