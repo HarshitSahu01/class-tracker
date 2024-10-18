@@ -96,6 +96,13 @@ const StudentLogin = () => {
                             </p>
                         </div>
                     </form>
+                    <div className="skip text-xl font-medium py-4 px-2 text-blue-500">
+                        <button onClick={()=>{
+                            navigate('/home')
+                        }}>
+                            Skip for now
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

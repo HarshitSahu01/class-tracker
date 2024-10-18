@@ -6,6 +6,7 @@ const navElems = [
   { path: '/home', name: 'Home' },
   { path: '/available', name: 'Available Classrooms' },
   { path: '/contact', name: 'Contact Us' },
+  { path: '/Home1', name: 'Admin'},
   { path: '/Maps', name: <TbMapSearch /> },
 ]
 

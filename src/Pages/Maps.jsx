@@ -7,7 +7,6 @@ const Maps = () => {
     <div>
         <Navbar/>
         <Map />
-        <Footer/>
     </div>
   )
 }
