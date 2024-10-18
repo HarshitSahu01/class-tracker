@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { default as logo } from "../assets/logo.svg";
-
+import { TbMapSearch } from "react-icons/tb";
 const navElems = [
-  { path: '/', name: 'Home' },
-  { path: '/events', name: 'Available Classrooms' },
-  { path: '/team', name: 'Contact Us' },
+  { path: '/home', name: 'Home' },
+  { path: '/AvailableClassRoom', name: 'Available Classrooms' },
+  { path: '/contact', name: 'Contact Us' },
+  { path: '/Maps', name: <TbMapSearch /> },
 ]
 
 const Navbar = () => {
@@ -17,7 +18,7 @@ const Navbar = () => {
 
   return (
     <header className="flex items-center justify-between px-6 py-4 bg-white shadow-md sticky top-0 z-50">
-      <div className="flex items-center space-x-4">
+      <div className="flex items-center space-x-4 text-2xl ">
         <Link to="/" className="flex items-center">
           <img src={logo} alt="Logo" className="w-10 h-10" />
           <span className="font-medium text-[#5f5f5f] text-xl ml-2" style={{ fontFamily: 'Google Sans, sans-serif' }}>
@@ -41,7 +42,7 @@ const Navbar = () => {
           </svg>
         </button>
       </div>
-      <nav className="hidden lg:flex flex-1 justify-end space-x-8 mr-4">
+      <nav className="hidden lg:flex flex-1 justify-end space-x-8 mr-4 text-2xl ">
         {navElems.map(
           elem => <Link to={elem.path} className="text-[#5f5f5f] hover:text-blue-600 transition-colors duration-200" style={{ fontFamily: 'Google Sans, sans-serif' }}>
             {elem.name}

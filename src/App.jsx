@@ -9,15 +9,14 @@ import Home1 from './Pages/Home1'
 import BuildingForm from './Pages/Form'
 import FormClassRoom from './Pages/FormClassRoom'
 import LangingPage from './Components/LangingPage'
-import Navbar from './Components/Navbar'
 import ClassroomList from './Pages/AvailableClassRoom'
-
+import Maps from './Pages/Maps'
 function App() {
   return (
     <>
       
        <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<LangingPage />} />
         <Route path="/Home1" element={<Home1 />} />
         <Route path="/StudentRegistration" element={<RegisterPage />} />
         <Route path="/StudentLogin" element={<StudentLogin />} />
@@ -26,7 +25,8 @@ function App() {
         <Route path="/formb" element={<BuildingForm />} />
         <Route path="/formc" element={<FormClassRoom />} />
         <Route path="/available" element={<ClassroomList/>} />
-        <Route path="/LandingPage" element={<LangingPage/>} />
+        <Route path="/Home" element={<Home/>} />
+        <Route path="/maps" element={<Maps/>} />
 
       </Routes> 
       {/* <Navbar/> */}

@@ -1,5 +1,5 @@
 import { React, useState } from "react";
-import logo2 from "../assets/logo.svg"
+import logo2 from "../assets/door.svg"
 import free_rooms_logo from "../assets/free_rooms_logo.svg"
 import { useSpring, animated, useTrail } from "react-spring";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,7 +11,7 @@ import { IoTimeSharp } from "react-icons/io5";
 import Navbar from "../Components/Navbar";
 import Footer from '../Components/Footer'
 import HowWeWork from '../Components/HowWeWork'
-
+import building from '../assets/svgbuilding.png'
 export default function Home() {
   const [activeIndex, setActiveIndex] = useState(null);
   const [isFirstLogo, setIsFirstLogo] = useState(true);
@@ -121,29 +121,10 @@ export default function Home() {
      
 
       {/* Header Section */}
-      <div className="p-4 sm:p-6 bg-background">
-        <header className=" px-6 flex flex-col sm:flex-row sm:justify-between items-center mb-4">
-          <div className="flex items-center w-full">
-            {/* Filter Button (Left Side) */}
-            <button className="flex items-center px-4 py-2 rounded-lg mb-2 sm:mb-0 mr-0 sm:mr-4 font-semibold text-xl border border-orange-600 text-orange-600">
-              <FontAwesomeIcon icon={faFilter} className="mr-2 text-orange-600" />
-              Filters
-            </button>
-
-            {/* Search Input (Middle, takes most of the space) */}
-            <input
-              type="text"
-              placeholder="Search for a building..."
-              className="flex-grow border border-border rounded-md p-2 mb-2 sm:mb-0 sm:mr-4 w-full sm:w-auto"
-            />
-
-            {/* Sort Button (Right Side) */}
-            <button className="flex items-center px-4 py-2 gap-2 rounded-lg font-semibold text-xl border border-orange-600 text-orange-600">
-              <MdOutlineSort />
-              Sort
-            </button>
+      <div className="p-4 sm:p-6 bg-background flex flex-col justify-center items-center">
+          <div className="svg-img opacity-70">
+            <img src={building} alt="error" />
           </div>
-        </header>
 
         {/* Building List */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 px-2 sm:px-10">
