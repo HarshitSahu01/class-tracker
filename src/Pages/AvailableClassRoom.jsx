@@ -4,6 +4,7 @@ import { collection, getDocs } from 'firebase/firestore';
 import { ref, getDownloadURL } from 'firebase/storage';
 import CardL from '../Components/CardL';
 import Navbar from '../Components/Navbar';
+import Footer from '../Components/Footer';
 
 function ClassroomList() {
   const [classrooms, setClassrooms] = useState([]);
@@ -63,6 +64,7 @@ function ClassroomList() {
           <p>No classrooms available.</p>
         )}
       </div>
+      <Footer/>
     </div>
   );
 }

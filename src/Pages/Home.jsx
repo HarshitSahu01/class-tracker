@@ -9,7 +9,7 @@ import { SiHiveBlockchain } from "react-icons/si";
 import { FaMap } from "react-icons/fa";
 import { IoTimeSharp } from "react-icons/io5";
 import Navbar from "../Components/Navbar";
-import Footer from '../Components/Footer'
+import Footer from "../Components/Footer";
 import HowWeWork from '../Components/HowWeWork'
 import building from '../assets/svgbuilding.png'
 export default function Home() {
@@ -100,8 +100,8 @@ export default function Home() {
 
   return (
     <>
-    <Navbar />
       {/* Logo Section */}
+      <Navbar/>
       <div className="flex flex-col items-center justify-center p-8 bg-background">
         <img
           aria-hidden="true"
@@ -204,8 +204,8 @@ export default function Home() {
           ))}
         </div>
       </div>
-      
       <HowWeWork />
+      
       <Footer />
     </>
   );
