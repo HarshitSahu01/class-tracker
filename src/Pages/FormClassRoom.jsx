@@ -7,14 +7,14 @@ function FormClassRoom() {
     const [className, setClassName] = useState("");
     const [buildingNumber, setBuildingNumber] = useState("");
     const [timeSlots, setTimeSlots] = useState({
-        "9-10 AM": { occupied: false, nonOccupied: true },
-        "10-11 AM": { occupied: false, nonOccupied: true },
-        "11-12 PM": { occupied: false, nonOccupied: true },
-        "12-1 PM": { occupied: false, nonOccupied: true },
-        "1-2 PM": { occupied: false, nonOccupied: true },
-        "2-3 PM": { occupied: false, nonOccupied: true },
-        "3-4 PM": { occupied: false, nonOccupied: true },
-        "4-5 PM": { occupied: false, nonOccupied: true },
+        "9-10 AM": { occupied: false, available: true },
+        "10-11 AM": { occupied: false, available: true },
+        "11-12 PM": { occupied: false, available: true },
+        "12-1 PM": { occupied: false, available: true },
+        "1-2 PM": { occupied: false, available: true },
+        "2-3 PM": { occupied: false, available: true },
+        "3-4 PM": { occupied: false, available: true },
+        "4-5 PM": { occupied: false, available: true },
     });
 
     const handleCheckboxChange = (time, type) => {
@@ -22,7 +22,7 @@ function FormClassRoom() {
             ...prev,
             [time]: {
                 occupied: type === 'occupied' ? !prev[time].occupied : prev[time].occupied,
-                nonOccupied: type === 'nonOccupied' ? !prev[time].nonOccupied : prev[time].nonOccupied,
+                available: type === 'available' ? !prev[time].available : prev[time].available,
             },
         }));
     };
@@ -35,10 +35,8 @@ function FormClassRoom() {
                 timeSlots,
             };
 
-           
             const buildingRef = doc(db, "buildings", buildingNumber);
 
-           
             await updateDoc(buildingRef, {
                 classes: arrayUnion(classroomData),
             });
@@ -47,14 +45,14 @@ function FormClassRoom() {
             setClassName("");
             setBuildingNumber("");
             setTimeSlots({
-                "9-10 AM": { occupied: false, nonOccupied: true },
-                "10-11 AM": { occupied: false, nonOccupied: true },
-                "11-12 PM": { occupied: false, nonOccupied: true },
-                "12-1 PM": { occupied: false, nonOccupied: true },
-                "1-2 PM": { occupied: false, nonOccupied: true },
-                "2-3 PM": { occupied: false, nonOccupied: true },
-                "3-4 PM": { occupied: false, nonOccupied: true },
-                "4-5 PM": { occupied: false, nonOccupied: true },
+                "9-10 AM": { occupied: false, available: true },
+                "10-11 AM": { occupied: false, available: true },
+                "11-12 PM": { occupied: false, available: true },
+                "12-1 PM": { occupied: false, available: true },
+                "1-2 PM": { occupied: false, available: true },
+                "2-3 PM": { occupied: false, available: true },
+                "3-4 PM": { occupied: false, available: true },
+                "4-5 PM": { occupied: false, available: true },
             });
         } catch (error) {
             console.error("Error registering classroom:", error);
@@ -105,27 +103,31 @@ function FormClassRoom() {
                             <h3 className="text-xl font-semibold">Time Slots</h3>
                         </div>
 
-                        {Object.keys(timeSlots).map((time) => (
-                            <div key={time} className="flex items-center space-x-4">
-                                <label className="font-medium text-gray-800">{time}</label>
-                                <label className="flex items-center space-x-2">
-                                    <input
-                                        type="checkbox"
-                                        checked={timeSlots[time].occupied}
-                                        onChange={() => handleCheckboxChange(time, 'occupied')}
-                                    />
-                                    <span>Occupied</span>
-                                </label>
-                                <label className="flex items-center space-x-2">
-                                    <input
-                                        type="checkbox"
-                                        checked={timeSlots[time].nonOccupied}
-                                        onChange={() => handleCheckboxChange(time, 'nonOccupied')}
-                                    />
-                                    <span>Non-Occupied</span>
-                                </label>
-                            </div>
-                        ))}
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            {Object.keys(timeSlots).map((time) => (
+                                <div key={time} className="bg-gray-50 p-4 rounded-lg shadow-md">
+                                    <label className="font-medium text-gray-800">{time}</label>
+                                    <div className="flex items-center space-x-4 mt-2">
+                                        <label className="flex items-center space-x-2">
+                                            <input
+                                                type="checkbox"
+                                                checked={timeSlots[time].occupied}
+                                                onChange={() => handleCheckboxChange(time, 'occupied')}
+                                            />
+                                            <span>Occupied</span>
+                                        </label>
+                                        <label className="flex items-center space-x-2">
+                                            <input
+                                                type="checkbox"
+                                                checked={timeSlots[time].available}
+                                                onChange={() => handleCheckboxChange(time, 'available')}
+                                            />
+                                            <span>Available</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
 
                         <div className="flex justify-center">
                             <button
