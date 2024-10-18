@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from '../Components/Navbar2';
-import { db, storage } from '../firebase'; 
+import { db, storage, auth } from '../firebase'; // Import auth from firebase
 import { doc, setDoc } from 'firebase/firestore';
 import { ref, uploadBytes } from 'firebase/storage';
 
@@ -10,6 +10,18 @@ const BuildingForm = () => {
     const [buildingImage, setBuildingImage] = useState(null);
     const [error, setError] = useState("");
     const [success, setSuccess] = useState(false);
+    const [userUid, setUserUid] = useState(null);
+
+    useEffect(() => {
+        const fetchUser = async () => {
+            const currentUser = auth.currentUser;
+            if (currentUser) {
+                setUserUid(currentUser.uid);
+            }
+        };
+
+        fetchUser();
+    }, []);
 
     const handleImageChange = (e) => {
         const file = e.target.files[0];
@@ -29,17 +41,21 @@ const BuildingForm = () => {
             return;
         }
 
+        if (!userUid) {
+            setError("User authentication failed.");
+            return;
+        }
+
         try {
-            
             const imageRef = ref(storage, `buildings/${buildingImage.name}`);
             await uploadBytes(imageRef, buildingImage);
 
-         
             await setDoc(doc(db, "buildings", buildingNumber), {
                 name: buildingName,
-                number: buildingNumber, 
-                image: buildingImage.name, 
+                number: buildingNumber,
+                image: buildingImage.name,
                 createdAt: new Date(),
+                uid: userUid, // Include user UID here
             });
 
             setSuccess(true);
