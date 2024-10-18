@@ -5,9 +5,9 @@ import work1 from '../assets/work1.svg';
 
 const HeroSection = () => {
     return (
-        <div className="flex flex-col md:flex-row items-center justify-between py-12 px-6 max-w-5xl mx-auto" style={{ fontFamily: 'Google Sans, sans-serif' }}>
+        <div className="flex flex-col md:flex-row gap-12 items-center justify-between py-12 px-6 max-w-5xl mx-auto" style={{ fontFamily: 'Google Sans, sans-serif' }}>
 
-            <div className="flex flex-col items-start md:w-1/2 mb-8 md:mb-0">
+            <div className="flex flex-col gap-6 items-start md:w-1/2 mb-8 md:mb-0">
                 <h1 className="text-4xl font-bold text-left mb-6 text-orange-600 flex items-center">
                     <img src={work1} alt="work" className="h-10 mr-2" />
                     HOW WE WORK

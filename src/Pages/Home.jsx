@@ -6,15 +6,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFilter } from "@fortawesome/free-solid-svg-icons";
 import { MdOutlineSort } from "react-icons/md";
 import { SiHiveBlockchain } from "react-icons/si";
+import { FaArrowRight } from "react-icons/fa";
 import { FaMap } from "react-icons/fa";
 import { IoTimeSharp } from "react-icons/io5";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 import HowWeWork from '../Components/HowWeWork'
 import building from '../assets/svgbuilding.png'
+import { useNavigate } from "react-router-dom";
 export default function Home() {
   const [activeIndex, setActiveIndex] = useState(null);
   const [isFirstLogo, setIsFirstLogo] = useState(true);
+  const navigate = useNavigate();
 
   const handleLogoClick = () => {
     setIsFirstLogo(!isFirstLogo);
@@ -33,54 +36,22 @@ export default function Home() {
     config: { mass: 1, tension: 200, friction: 15 },
   });
 
-  const buildings = [
-    {
-      name: "AGSM",
-      availableRooms: 7,
-      imageUrl: "https://placehold.co/300x200?text=AGSM",
-    },
-    {
-      name: "Ainsworth Building",
-      availableRooms: 15,
-      imageUrl: "https://placehold.co/300x200?text=Ainsworth",
-    },
-    {
-      name: "Another Building",
-      availableRooms: 1,
-      imageUrl: "https://placehold.co/300x200?text=Another",
-    },
-    {
-      name: "AGSM",
-      availableRooms: 7,
-      imageUrl: "https://placehold.co/300x200?text=AGSM",
-    },
-    {
-      name: "Ainsworth Building",
-      availableRooms: 15,
-      imageUrl: "https://placehold.co/300x200?text=Ainsworth",
-    },
-    {
-      name: "Another Building",
-      availableRooms: 1,
-      imageUrl: "https://placehold.co/300x200?text=Another",
-    },
-  ];
 
   const faqs = [
     {
-      question: "Can I book a room using Freerooms?",
+      question: "What is a key advantage of using this system?",
       answer:
-        "While Freerooms can tell you anything you want to know about when a room is booked, there isn't much we can do if a person decides to take an unbooked room.",
+        "It offers an easy-to-understand visual tool for students to locate quiet study spots based on real-time data.",
     },
     {
-      question: "Why isn't my booking showing up?",
+      question: "Can the system integrate with existing campus infrastructure?",
       answer:
-        "To make sure you are this person, keep an eye out for rooms marked 'Available Soon' and get in there before anyone else can!",
+        "Yes, it can pull data from current systems like Wi-Fi networks and room booking platforms for real-time insights.",
     },
     {
-      question: "How can I get involved?",
+      question: "Is my location tracked for this service?",
       answer:
-        "You can get involved by signing up for our newsletter and checking our website for updates.",
+        "No, the website tracks aggregated data from campus systems, not individual student locations.",
     },
     {
       question: "What happens if somebody is in a free room?",
@@ -88,13 +59,13 @@ export default function Home() {
         "While Freerooms can tell you anything you want to know about when a room is booked, there isn't much we can do if a person decides to take an unbooked room.",
     },
     {
-      question: "Why are some rooms not on Freerooms?",
+      question: "How do I find an available room?",
       answer:
-        "Some rooms may not be listed due to various reasons including maintenance or availability.",
+        "Simply visit the home page and select the building you are interested in. A list of rooms with their current availability status will be displayed.",
     },
     {
-      question: "Is there a mobile version of Freerooms?",
-      answer: "Yes, Freerooms is fully optimized for mobile use.",
+      question: "Is this service available for all college buildings?",
+      answer: "Currently, the service covers the following buildings: Digital Tower, First Year Building, Civil-Mechanical Building, Electronics and Communication-Biomedical Building, IT Building, MCA Building, and MBA Building. We are working on expanding coverage to include more buildings in the near future.",
     },
   ];
 
@@ -127,28 +98,21 @@ export default function Home() {
           </div>
 
         {/* Building List */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 px-2 sm:px-10">
-          {buildings.map((building, index) => (
-            <div key={index} className="relative border border-border rounded-lg overflow-hidden">
-              <img
-                src={building.imageUrl}
-                alt={building.name}
-                className="w-full h-48 sm:h-64 object-cover"
-              />
-              <div className="absolute bottom-0 left-0 right-0 bg-white bg-opacity-75 p-4 flex justify-between items-center">
-                <span className="font-semibold">{building.name}</span>
-                <span className={`text-green-600 font-bold`}>
-                  {building.availableRooms} rooms available
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
+  
+
+          <button className="flex flex-row justify-center items-center gap-4 px-2 sm:px-10" onClick={()=>{
+            navigate('/available')
+          }}>
+          <span className="text-3xl font-bold text-orange-400 hover:text-orange-500 transition-all my-12 ">Checkout Available Rooms...</span>
+          <div className="arr text-3xl text-orange-400 hover:translate-x-2 transition-all">
+          <FaArrowRight />
+          </div>
+          </button>
       </div>
 
       {/* Features Section */}
       <section className="py-12 sm:py-16 bg-background">
-        <h2 className="text-center text-3xl sm:text-4xl font-extrabold mb-8">Our Features</h2>
+        <h2 className="text-center text-4xl sm:text-4xl font-extrabold mb-8">Our Features</h2>
         <div className="p-6 sm:p-10 grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="bg-white rounded-lg shadow-md p-6">
             <div className="flex text-orange-600">
@@ -183,8 +147,8 @@ export default function Home() {
       </section>
 
       {/* FAQ Section */}
-      <div className="max-w-4xl mx-auto p-6">
-        <h2 className="text-3xl font-extrabold mb-4 text-orange-600">Frequently Asked Questions</h2>
+      <div className="max-w-4xl mx-auto p-6 flex flex-col justify-center items-center mb-12">
+        <h2 className="text-4xl font-extrabold mb-4 text-black">FAQs</h2>
         <div className="space-y-4">
           {faqs.map((faq, index) => (
             <div key={index} className="border border-orange-600 rounded-lg p-4">
@@ -193,7 +157,7 @@ export default function Home() {
                 onClick={() => toggleFAQ(index)}
               >
                 <h3>{faq.question}</h3>
-                <span className="text-orange-600 text-2xl">
+                <span className="text-orange-600 text-2xl transition-all duration-1000">
                   {activeIndex === index ? "-" : "+"}
                 </span>
               </div>

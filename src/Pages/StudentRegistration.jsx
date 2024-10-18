@@ -3,7 +3,6 @@ import { createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } f
 import { auth } from '../firebase';
 import { Link, useNavigate } from 'react-router-dom';
 import { default as logo } from "../assets/logo.svg";
-
 const RegisterPage = () => {
     const [email, setEmail] = useState("");
     const [password, setPass] = useState("");
@@ -37,20 +36,16 @@ const RegisterPage = () => {
                 
                 <div className="lg:w-1/2 flex flex-col justify-center mb-10 lg:mb-0">
                     <div className="flex items-center mb-5">
-                        <img src={logo} alt="Logo" className="w-10 h-10 mr-2" />  
+                        <img src={logo} alt="Logo" className="w-20 h-20 mr-2" />  
                         <h2 className="text-3xl lg:text-4xl font-bold text-[#d3613a]">
                             CLASS TRACKER<br />
-                            <span className="text-[#1e2d4c] font-extrabold"> RBU </span>
+                            <span className="text-[#1e2d4c] font-extrabold">  </span>
                         </h2>
                     </div>
-                    <p className="text-lg text-[#1e2d4c] leading-relaxed">
-                        Hello, I am Jyotiraditya. Thank you for giving me the opportunity to participate in the next round.
-                        With this project, I aimed to demonstrate my skills in both frontend and backend development.
-                        For the backend, I used Firebase, and for the frontend, I utilized React along with Tailwind CSS.
-                    </p>
+                    <p className="text-lg text-[#1e2d4c] leading-relaxed"></p>
                 </div>
 
-                <div className="lg:w-1/2 bg-[#f4f4f4] p-8 rounded-lg shadow-md" style={{ marginLeft: "20px" }}>
+                <div className="flex flex-col justify-center items-center lg:w-1/2 bg-[#f4f4f4] p-8 rounded-lg shadow-md" style={{ marginLeft: "20px" }}>
                     <h3 className="text-2xl font-bold text-[#d3613a] text-center mb-5">
                         Create An Account
                     </h3>
@@ -135,6 +130,13 @@ const RegisterPage = () => {
                             </p>
                         </div>
                     </form>
+                    <div className="skip text-xl font-medium py-4 px-2">
+                        <button onClick={()=>{
+                            navigate('/home')
+                        }}>
+                            Skip for now
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

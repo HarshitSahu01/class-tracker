@@ -4,7 +4,7 @@ import { default as logo } from "../assets/logo.svg";
 import { TbMapSearch } from "react-icons/tb";
 const navElems = [
   { path: '/home', name: 'Home' },
-  { path: '/AvailableClassRoom', name: 'Available Classrooms' },
+  { path: '/available', name: 'Available Classrooms' },
   { path: '/contact', name: 'Contact Us' },
   { path: '/Maps', name: <TbMapSearch /> },
 ]
