@@ -1,5 +1,5 @@
 .footer-container {
-    background: linear-gradient(-135deg, #FFB75E 40%, #FF00FF); /* Gradient from #FA8C5E to #FFB75E */
+    background: linear-gradient(-135deg, #FA8C5E, #FFB75E); /* Gradient from #FA8C5E to #FFB75E */
     color: #ffffff; /* Text color remains white */
     padding: 40px 20px;
     width: 100%;
