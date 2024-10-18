@@ -4,10 +4,8 @@ import { default as logo } from "../assets/logo.svg";
 
 const navElems = [
   { path: '/', name: 'Home' },
-  { path: '/events', name: 'Events' },
-  { path: '/team', name: 'Team' },
-  { path: '/alumni', name: 'Alumni' },
-  { path: '#footer', name: 'Contact' },
+  { path: '/events', name: 'Available Classrooms' },
+  { path: '/team', name: 'Contact Us' },
 ]
 
 const Navbar = () => {

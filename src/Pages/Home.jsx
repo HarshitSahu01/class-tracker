@@ -118,10 +118,7 @@ export default function Home() {
           ))}
         </p>
       </div>
-
-      <HowWeWork />
-
-      
+     
 
       {/* Header Section */}
       <div className="p-4 sm:p-6 bg-background">
@@ -226,6 +223,8 @@ export default function Home() {
           ))}
         </div>
       </div>
+      
+      <HowWeWork />
       <Footer />
     </>
   );
