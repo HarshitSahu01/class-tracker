@@ -8,8 +8,8 @@ import ManagmentLogin from './Pages/ManagmentLogin'
 import Home1 from './Pages/Home1'
 import BuildingForm from './Pages/Form'
 import FormClassRoom from './Pages/FormClassRoom'
-import OurListedB from './Pages/OurListedB'
-import AvailableClassRoom from './Pages/AvailableClassRoom'
+
+
 import ClassroomList from './Pages/AvailableClassRoom'
 
 function App() {
