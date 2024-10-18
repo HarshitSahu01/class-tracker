@@ -2,7 +2,7 @@ import React from 'react'
 import video from '../assets/LandingPageVideo.mp4'
 import DetailsForm from './DetailsForm'
 import logo from '../assets/logo.svg'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom' 
 const LangingPage = () => {
   const navigate = useNavigate();
   return (
