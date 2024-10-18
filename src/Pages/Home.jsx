@@ -1,6 +1,6 @@
 import { React, useState } from "react";
-import free_rooms_logo from "../public/images/free_rooms_logo.svg";
-import logo2 from "../public/images/logo2.svg"
+import logo2 from "../assets/logo.svg"
+import free_rooms_logo from "../assets/free_rooms_logo.svg"
 import { useSpring, animated, useTrail } from "react-spring";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFilter } from "@fortawesome/free-solid-svg-icons";
@@ -9,7 +9,8 @@ import { SiHiveBlockchain } from "react-icons/si";
 import { FaMap } from "react-icons/fa";
 import { IoTimeSharp } from "react-icons/io5";
 import Navbar from "../Components/Navbar";
-import Navbarmain from "../Components/Navbarmain"
+import Footer from '../Components/Footer'
+import HowWeWork from '../Components/HowWeWork'
 
 export default function Home() {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -99,7 +100,7 @@ export default function Home() {
 
   return (
     <>
-    <Navbarmain />
+    <Navbar />
       {/* Logo Section */}
       <div className="flex flex-col items-center justify-center p-8 bg-background">
         <img
@@ -117,6 +118,10 @@ export default function Home() {
           ))}
         </p>
       </div>
+
+      <HowWeWork />
+
+      
 
       {/* Header Section */}
       <div className="p-4 sm:p-6 bg-background">
@@ -221,6 +226,7 @@ export default function Home() {
           ))}
         </div>
       </div>
+      <Footer />
     </>
   );
 }
