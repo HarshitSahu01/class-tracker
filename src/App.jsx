@@ -8,12 +8,15 @@ import ManagmentLogin from './Pages/ManagmentLogin'
 import Home1 from './Pages/Home1'
 import BuildingForm from './Pages/Form'
 import FormClassRoom from './Pages/FormClassRoom'
+import OurListedB from './Pages/OurListedB'
+import AvailableClassRoom from './Pages/AvailableClassRoom'
+import ClassroomList from './Pages/AvailableClassRoom'
 
 function App() {
   return (
     <>
       
-      <Routes>
+       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Home1" element={<Home1 />} />
         <Route path="/StudentRegistration" element={<RegisterPage />} />
@@ -22,7 +25,9 @@ function App() {
         <Route path="/ManagmentLogin" element={<ManagmentLogin />} />
         <Route path="/formb" element={<BuildingForm />} />
         <Route path="/formc" element={<FormClassRoom />} />
-      </Routes>
+        <Route path="/available" element={<ClassroomList/>} />
+      </Routes> 
+      
 
     </>
   )
